@@ -7,7 +7,7 @@ using ToDoList.Models;
 
 namespace ToDoList.DatebaseAccess.DataProviders
 {
-    public class CategoryDataProvider : ICategory
+    public class CategoryDataProvider : ICategoryDataProvider
     {
         private readonly string _connectionString;
         public CategoryDataProvider(IOptions<DatabaseOptions> options)

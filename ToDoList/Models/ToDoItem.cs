@@ -6,19 +6,23 @@
 
         public string Title { get; set; }
 
-        public DateTime CompletionDate { get; set; }
+        public DateTime Deadline { get; set; }
 
         public Category Category { get; set; }
 
-        public DateTime CompleteDate { get; set; }
+        public DateTime? CompleteDate { get; set; }
 
-        public ToDoItem(int id, string title, DateTime completionDate, Category category, DateTime completeDate)
+        public ToDoItem(int id, string title, DateTime deadline, Category category, DateTime? completeDate)
         {
             Id = id;
             Title = title;
-            CompletionDate = completionDate;
+            Deadline = deadline;
             Category = category;
             CompleteDate = completeDate;
+        }
+        public ToDoItem()
+        {
+
         }
     }
 }

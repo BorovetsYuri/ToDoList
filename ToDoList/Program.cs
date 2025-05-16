@@ -6,7 +6,7 @@ using ToDoList.DatebaseAccess.Interfaces;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.Configure<DatabaseOptions>(builder.Configuration.GetSection("Database"));
 builder.Services.AddSingleton<IToDoItemDataProvider, ToDoItemDataProvider>();
-builder.Services.AddSingleton<ICategory, CategoryDataProvider>();
+builder.Services.AddSingleton<ICategoryDataProvider, CategoryDataProvider>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 

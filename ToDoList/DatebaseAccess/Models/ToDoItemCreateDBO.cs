@@ -3,14 +3,18 @@
     public class ToDoItemCreateDBO
     {
         public string Title { get; set; }
-        public DateTime CompletionDate { get; set; }
+        public DateTime Deadline { get; set; }
         public int CategoryId { get; set; }
 
-        public ToDoItemCreateDBO(string title, DateTime completionDate, int categoryId)
+        public ToDoItemCreateDBO(string title, DateTime deadline, int categoryId)
         {
             Title = title;
-            CompletionDate = completionDate;
+            Deadline = deadline;
             CategoryId = categoryId;
+        }
+        public ToDoItemCreateDBO()
+        {
+            Deadline = DateTime.Now;
         }
     }
 }

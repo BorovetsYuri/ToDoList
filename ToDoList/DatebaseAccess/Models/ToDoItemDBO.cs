@@ -1,5 +1,4 @@
-﻿using ToDoList.Models;
-
+﻿
 namespace ToDoList.DatebaseAccess.Models
 {
     public class ToDoItemDBO
@@ -8,19 +7,23 @@ namespace ToDoList.DatebaseAccess.Models
 
         public string Title { get; set; }
 
-        public DateTime CompletionDate { get; set; }
+        public DateTime Deadline { get; set; }
 
         public int CategoryId { get; set; }
 
-        public DateTime CompleteDate { get; set; }
+        public DateTime? CompleteDate { get; set; }
 
-        public ToDoItemDBO(int id, string title, DateTime completionDate, int categoryId, DateTime completeDate)
+        public ToDoItemDBO(int id, string title, DateTime deadline, int categoryId, DateTime? completeDate)
         {
             Id = id;
             Title = title;
-            CompletionDate = completionDate;
+            Deadline = deadline;
             CategoryId = categoryId;
             CompleteDate = completeDate;
+        }
+        public ToDoItemDBO()
+        {
+            
         }
     }
 }

@@ -6,8 +6,8 @@ namespace ToDoList.Controllers
 {
     public class CategoryController : Controller
     {
-        private readonly ICategory category;
-        public CategoryController(ICategory category)
+        private readonly ICategoryDataProvider category;
+        public CategoryController(ICategoryDataProvider category)
         {
             this.category = category;
         }

@@ -4,7 +4,6 @@ using Microsoft.Extensions.Options;
 using ToDoList.Configuration;
 using ToDoList.DatebaseAccess.Interfaces;
 using ToDoList.DatebaseAccess.Models;
-using ToDoList.Models;
 
 namespace ToDoList.DatebaseAccess.DataProviders
 {
@@ -28,9 +27,9 @@ namespace ToDoList.DatebaseAccess.DataProviders
         public ToDoItemDBO AddToDoItem(ToDoItemCreateDBO toDoItem)
         {
             var sql = @"
-                INSERT INTO ToDoTasks (Title, CompletionDate, CategoryId)
+                INSERT INTO ToDoTasks (Title, Deadline, CategoryId)
                 OUTPUT INSERTED.* 
-                VALUES (@Title, @CompletionDate, @CategoryId)";
+                VALUES (@Title, @Deadline, @CategoryId)";
             using var connection = new SqlConnection(_connectionString);
             return connection.QuerySingle<ToDoItemDBO>(sql, toDoItem);
         }
@@ -38,7 +37,7 @@ namespace ToDoList.DatebaseAccess.DataProviders
         {
             var sql = @"
                 UPDATE ToDoTasks 
-                SET Title = @Title, CompletionDate = @CompletionDate, CategoryId = @CategoryId
+                SET Title = @Title, Deadline = @Deadline, CategoryId = @CategoryId
                 OUTPUT INSERTED.* 
                 WHERE Id = @Id";
             using var connection = new SqlConnection(_connectionString);

@@ -2,7 +2,7 @@
 
 namespace ToDoList.DatebaseAccess.Interfaces
 {
-    public interface ICategory
+    public interface ICategoryDataProvider
     {
         List<Category> GetAllCategories();
         Category AddCategory(Category category);
