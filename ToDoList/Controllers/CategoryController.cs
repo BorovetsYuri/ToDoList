@@ -14,17 +14,18 @@ namespace ToDoList.Controllers
         public IActionResult GetAllCategories()
         {
             var categories = category.GetAllCategories();
-            return View(categories);
+            EditCategoriesPageModel editCategoriesPageModel = new EditCategoriesPageModel(categories);
+            return View("Categories", editCategoriesPageModel);
         }
         public IActionResult AddCategory(Category category)
         {
             var newCategory = this.category.AddCategory(category);
-            return View(newCategory);
+            return RedirectToAction("GetAllCategories");
         }
         public IActionResult UpdateCategory(Category category)
         {
             var updatedCategory = this.category.UpdateCategory(category);
-            return View(updatedCategory);
+            return RedirectToAction("GetAllCategories");
         }
         public IActionResult DeleteCategory(int id)
         {

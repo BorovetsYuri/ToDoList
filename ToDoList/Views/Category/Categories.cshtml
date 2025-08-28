@@ -1,0 +1,42 @@
+﻿@model ToDoList.Models.EditCategoriesPageModel
+
+@{
+    ViewData["Title"] = "Редагування категорій";
+}
+
+<h2>Редагування категорій</h2>
+
+<form asp-action="AddCategory" method="post">
+    <div class="form-group">
+        <label asp-for="Category.Name"></label>
+        <input asp-for="Category.Name" class="form-control" />
+        <span asp-validation-for="Category.Name" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Додати категорію</button>
+    <a asp-action="Index" class="btn btn-secondary">Скасувати</a>
+</form>
+
+<div>
+    <h3>Список категорій</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Назва</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var category in Model.Categories)
+            {
+                <tr>
+                    <td>@category.Name</td>
+                    <td>
+                        <form asp-action="DeleteCategory" method="post" style="display:inline;">
+                            <input type="hidden" name="categoryId" value="@category.Id" />
+                            <button type="submit" class="btn btn-danger btn-sm">Видалити</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+    </table>
+</div>

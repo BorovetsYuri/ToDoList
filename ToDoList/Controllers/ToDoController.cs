@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using ToDoList.DatebaseAccess.Interfaces;
-using ToDoList.DatebaseAccess.Models;
 using ToDoList.Models;
 
 namespace ToDoList.Controllers
